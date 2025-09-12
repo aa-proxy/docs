@@ -6,7 +6,14 @@ export default defineConfig({
   description: "Docs for aa-proxy",
   base: '/docs/',
   cleanUrls: true,
+  lastUpdated: true,
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
+    editLink: {
+      pattern: 'https://github.com/aa-proxy/docs/edit/main/:path',
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
