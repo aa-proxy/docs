@@ -3,23 +3,23 @@
 layout: home
 
 hero:
-  name: "aa-proxy-docs"
-  text: "Docs for aa-proxy"
-  tagline: My great project tagline
+  name: "aa-proxy"
+  text: "aa-proxy lets you run Android Auto your way — wired or wireless, anywhere"
+  tagline: Fast. Flexible. Open. Hackable by design.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Getting Started
+      link: /getting-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Troubleshooting
+      link: /troubleshooting
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Rust-Powered Performance
+    details: Built with async Rust and io_uring for ultra-low latency I/O.
+  - title: Open & DIY-Friendly
+    details: Compatible with Raspberry Pi, Radxa, AAWireless, and other embedded devices.
+  - title: Transparent or MITM Mode
+    details: Act as a simple bridge or intercept traffic to inspect, log, and modify Android Auto communication.
 ---
 
