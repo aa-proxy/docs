@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "aa-proxy Docs",
+  title: "🛸 aa-proxy documentation",
   description: "Docs for aa-proxy",
   base: '/docs/',
   cleanUrls: true,
@@ -22,6 +22,10 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Main',
+        items: [
+          { text: 'Troubleshooting Guide', link: '/troubleshooting' },
+        ]
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
