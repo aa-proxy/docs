@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "aa-proxy"
-  text: "aa-proxy lets you run Android Auto your way — wired or wireless, anywhere"
+  text: "Android Auto dongle"
   tagline: Fast. Flexible. Open. Hackable by design.
   actions:
     - theme: brand
