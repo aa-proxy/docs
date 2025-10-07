@@ -56,7 +56,7 @@ Ensure the device is powered from the correct **OTG/data port**.
 ![Raspberry Pi Zero 2 W ports](./images/rpi-zero2w-ports.png)
 
 #### Radxa Zero 3W
-![Radxa Zero 3W ports](./images/radxa-zero3w-ports.png)
+![Radxa Zero 3W ports](./images/radxa-zero3w-ports.jpg)
 
 ### 3. LED Indicators (Radxa Only)
 
