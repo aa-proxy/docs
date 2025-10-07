@@ -24,8 +24,8 @@ export default defineConfig({
       {
         text: 'Main',
         items: [
-          { text: 'Troubleshooting Guide', link: '/troubleshooting' },
-        ]
+          { text: 'Troubleshooting Guide', link: '/troubleshooting' }
+        ],
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
