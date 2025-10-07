@@ -16,7 +16,7 @@ hero:
 
 features:
   - title: Rust-Powered Performance
-    details: Built with async Rust and io_uring for ultra-low latency I/O.
+    details: Built with async Rust and `io_uring` for ultra-low latency I/O.
   - title: Open & DIY-Friendly
     details: Compatible with Raspberry Pi, Radxa, AAWireless, and other embedded devices.
   - title: Transparent or MITM Mode
