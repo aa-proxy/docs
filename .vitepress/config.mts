@@ -25,9 +25,8 @@ export default defineConfig({
         text: 'Main',
         items: [
           { text: 'Getting started', link: '/getting-started' },
+          { text: 'Supported hardware', link: '/supported-hardware' },
           { text: 'Troubleshooting Guide', link: '/troubleshooting' },
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }
     ],

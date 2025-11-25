@@ -11,6 +11,9 @@ hero:
       text: Getting Started
       link: /getting-started
     - theme: alt
+      text: Supported hardware
+      link: /supported-hardware
+    - theme: alt
       text: Troubleshooting
       link: /troubleshooting
 
