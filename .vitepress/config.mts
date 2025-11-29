@@ -27,6 +27,7 @@ export default defineConfig({
           { text: 'Getting started', link: '/getting-started' },
           { text: 'Supported hardware', link: '/supported-hardware' },
           { text: 'Troubleshooting Guide', link: '/troubleshooting' },
+          { text: 'EV Routing Features', link: '/ev' },
         ]
       }
     ],
