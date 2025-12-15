@@ -88,8 +88,10 @@ Even though the board supports eMMC, at the moment only SD card booting is suppo
 Flashing aa-proxy will void your warranty, and at this moment there's no way to restore the original firmware.
 :::
 ::: info
-To flash the image, you’ll need to open the case and short two pins to force the device into maskrom mode. Once it’s in that state, you can use the flashing script available here to upload the new firmware:
+To flash the image, you’ll need to open the case and short two pins to force the device into maskrom mode during startup. Once the device enters this mode (which you can confirm by the different USB device identity), you can use the flashing script provided here to upload the new firmware:
 https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
+::: details You need to short pin MASKROM and GND, click for detailed PCB view
+![](images/aaw2b_pcb.png)
 :::
 ::: details Current draw waveforms
 ![](images/scope/aaw.png)
