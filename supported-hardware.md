@@ -133,6 +133,42 @@ https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
 | USB | 2× USB 3.0, 2× USB 2.0 |
 | Power | 12 W |
 | Dimentions | 85 × 56 mm |
+::: details Possible OTG problems
+I have a reports that sometimes OTG on the Pi5 is not working. In this case the logs (`dmesg`) are saying:
+```
+dwc2 1000480000.usb: dwc2_core_reset: HANG! Soft Reset timeout GRSTCTL_CSFTRST
+dwc2 1000480000.usb: probe with driver dwc2 failed with error -16
+```
+And aa-proxy is not working (HU connection problems). To solve this problem you need to manually flash
+official [RaspberryPi OS](https://www.raspberrypi.com/software/operating-systems/) image and perform
+a manual firmware update.  
+Here are required steps:
+
+**Step 1: Prepare the System:**  
+Open a terminal window (Ctrl+Alt+T).  
+Update the system with the following commands: `sudo apt update`, `sudo apt full-upgrade`.  
+Reboot Raspberry Pi to apply all updates: `sudo reboot`.
+
+**Step 2: Update the Firmware:**  
+Open a terminal window if it's not already open.  
+Access the configuration tool: `sudo raspi-config`.  
+Navigate to: __Advanced Options__ > __Bootloader Version__.  
+Select __Latest__ to update the firmware to the newest version available.  
+Exit the configuration tool and reboot Raspberry Pi to apply the changes: `sudo reboot`.
+
+After this in aa-proxy the OTG should work:
+```
+[    0.089468] dwc_otg: version 3.00a 10-AUG-2012 (platform bus)
+[    0.089487] dwc_otg: FIQ enabled
+[    0.089488] dwc_otg: NAK holdoff enabled
+[    0.089489] dwc_otg: FIQ split-transaction FSM enabled
+[    0.089492] Module dwc_common_port init
+[    1.513765] dwc2 1000480000.usb: supply vusb_d not found, using dummy regulator
+[    1.513800] dwc2 1000480000.usb: supply vusb_a not found, using dummy regulator
+[    1.614057] dwc2 1000480000.usb: EPs: 8, dedicated fifos, 4080 entries in SPRAM
+```
+info by: [@pepelxl](https://github.com/pepelxl)
+:::
 
 ## Raspberry Pi 3 A+
 ![Raspberry Pi 3 A+](images/hw/rpi3.png){width=40%}
