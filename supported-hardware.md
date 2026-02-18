@@ -45,6 +45,11 @@ The aa-proxy image is prepared to run on the RISC-V core, not on the ARM Cortex 
 
 Even though the board supports eMMC, at the moment only SD card booting is supported. eMMC support is planned for the future.
 :::
+::: details Current draw waveforms
+![](images/scope/duos1.png)
+
+![](images/scope/duos2.png)
+:::
 
 ## Radxa ZERO 3W
 ![Radxa ZERO 3W](images/hw/radxa03w.png){width=40%}
