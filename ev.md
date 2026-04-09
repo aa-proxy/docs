@@ -68,7 +68,7 @@ Thanks to [@Deadknight](https://github.com/Deadknight), we now have a website an
 http://152.70.21.153/index.php
 
 🤖 Android Companion App  
-http://152.70.21.153/app-151120251405.zip
+http://152.70.21.153/app-250320261426.zip
 
 Using these tools, you can create a model tailored to your specific EV, ensuring accurate range predictions and optimal routing.
 
