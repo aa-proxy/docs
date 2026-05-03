@@ -29,6 +29,7 @@ export default defineConfig({
           { text: 'Troubleshooting Guide', link: '/troubleshooting' },
           { text: 'Configuration options', link: '/config-options' },
           { text: 'EV Routing Features', link: '/ev' },
+          { text: 'Web API Reference', link: '/api' },
         ]
       }
     ],
