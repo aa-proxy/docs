@@ -67,8 +67,7 @@ Thanks to [@Deadknight](https://github.com/Deadknight), we now have a website an
 ⚙️ EV Model Generator for MITM Mode  
 http://152.70.21.153/index.php
 
-🤖 Android Companion App  
-http://152.70.21.153/app-250320261426.zip
+[Companion app / installation](companion-app#installation)
 
 Using these tools, you can create a model tailored to your specific EV, ensuring accurate range predictions and optimal routing.
 
