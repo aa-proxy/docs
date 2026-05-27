@@ -14,11 +14,20 @@ The companion app allows full configuration of aa-proxy using multiple communica
 - WiFi (while connected through Android Auto)
 - VEC (Vendor Extension Channel) using the AA protocol itself
 
+![Webserver preview](./images/companion/configuration.png)
+
+![Webserver preview](./images/companion/settings-tab.png)
+
+Each option can be searched/filtered by its name/description:
+![Webserver preview](./images/companion/configuration_search.png)
+
 This makes setup and maintenance significantly easier without requiring manual editing or external tooling.
 
 ## EV Routing Configuration
 
 One of the initial features of the app is EV profile configuration for Google Maps EV Routing support.
+
+![Webserver preview](./images/companion/ev.png)
 
 The application allows you to:
 
@@ -40,6 +49,8 @@ This allows users to:
 - Verify EV routing behavior
 - Troubleshoot firmware or configuration problems
 
+![Webserver preview](./images/companion/backup_restart.png)
+
 ## Automatic "you know what" Updates
 
 The app includes automatic updating of "you know what".
@@ -54,13 +65,38 @@ The companion app can also:
 
 - Upgrade aa-proxy firmware via OTA upgrade files for supported boards
 
+![Webserver preview](./images/companion/fw_upgrade.png)
+
 This simplifies maintenance and avoids manual flashing or update procedures.
 
-## More Features Coming
+## Plugins
 
-Additional features are constantly being added and improved.
+The application includes a system of separately installable plugins. Using these plugins, it is possible to create any screen that will later appear in the main Android Auto menu.
 
-(placeholder for screenshots and future feature descriptions)
+Plugins are installed as separate APK packages on Android and can then be enabled in the following menu:
+![Webserver preview](./images/companion/plugins.png)
+
+Once enabled, you can enjoy your new plugin. Example plugin for the Renault Zoe, adding an onboard computer visualization:
+![Webserver preview](./images/plugins/zoe-onboard-computer.png)
+
+as well as TPMS (tire pressure monitoring):
+![Webserver preview](./images/plugins/zoe-tires.png)
+
+Example source code for a test plugin can be found here:  
+https://github.com/aa-proxy/companion-app-sample-aa-plugin
+
+The README describes the project structure, and the plugin can be built using the included Docker setup.
+
+## Other features
+
+- Manually injecting battery level for EV cars:
+![Webserver preview](./images/companion/batt_sdr_injecting.png)
+
+- List and export crash reports:
+![Webserver preview](./images/companion/crashes.png)
+
+- Display injections for configuring additional virtual screens:
+![Webserver preview](./images/companion/display_injection.png)
 
 ## Why The App Is Not Public
 
