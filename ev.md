@@ -49,6 +49,17 @@ It can also be adapted to work with Bluetooth versions of the ELM327.
 
 If you're not sure what to do, I encourage you to join our [Discord](https://discord.gg/c7JKdwHyZu). With some teamwork we might be able to add support for your case - plus there are quite a few people there, and someone might already have the exact same car as you.
 
+## A Unified OBD Solution
+
+To simplify maintenance and future development, a new project has been created by [@kronflux](https://github.com/kronflux) that aims to unify both of the above approaches into a single daemon:
+
+🔗 aa-proxy-obd  
+https://github.com/aa-proxy/aa-proxy-obd
+
+`aa-proxy-obd` supports WiCAN Pro, USB ELM327, and Bluetooth ELM327 adapters through a single configurable binary. It inherits the capabilities of both `aa-proxy-wican` and `aa-proxy-go-obd-feeder`, while introducing a profile-based architecture that allows adding support for new vehicles without modifying the Rust code itself. Vehicle-specific PIDs and decoding logic are defined in external JSON profiles, making it much easier for the community to contribute support for additional EV models.
+
+If you're not sure what to do, I encourage you to join our Discord. With some teamwork we might be able to add support for your case - plus there are quite a few people there, and someone might already have the exact same car as you.
+
 ## Vehicle Model Configuration
 
 Once live battery data is being delivered correctly, the second half of the setup is required.
