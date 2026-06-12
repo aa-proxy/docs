@@ -139,7 +139,7 @@ That said, there are a few features that cannot realistically be configured with
 The companion application is distributed as an APK package and hosted on our server:
 
 🤖 Android Companion App  
-http://152.70.21.153/app-release-250520261249.apk
+http://152.70.21.153/app-release-120620260858.apk
 
 Future updates should be available directly from inside the application and can be installed without reinstalling the APK manually.
 
