@@ -78,6 +78,15 @@ Even though the board supports eMMC, at the moment only SD card booting is suppo
 ![](images/scope/radxa5-spikes-when-idle.png)
 :::
 
+## AAWireless 1
+| Feature | Specification |
+|---------|---------------|
+| SoC | Rockchip RV1109 (Radxa CS317) |
+| Storage | eMMC |
+::: danger
+Flashing aa-proxy will void your warranty, and at this moment there's no way to restore the original firmware.
+:::
+
 ## AAWireless TWO
 ![AAWireless TWO](images/hw/aaw2.avif){width=30%}
 | Feature | Specification |
