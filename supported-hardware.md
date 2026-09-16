@@ -116,6 +116,24 @@ For older devices, or if the button method does not work, you can still open the
 ![](images/scope/aaw.png)
 :::
 
+## AAWireless Firmware Flashing Instructions
+AAW boards have no removable media, so they flash over USB. Put the board into maskrom mode first:
+
+- AAW1 — hold the pinhole button, then plug in USB,
+- AAW2 (newer batch) — hold the button, plug in USB, and keep holding for 2 seconds,
+- AAW3 — hold the button, plug in USB, and keep holding for 2 seconds,
+
+Then flash using this repo:  
+https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
+
+`./tools/aaw/flash.sh aaw1-cs317 buildroot/output/aaw1-cs317/images/sdcard.img`
+
+`./tools/aaw/flash.sh aaw2b buildroot/output/aaw2b/images`
+
+`./tools/aaw/flash.sh aaw3 buildroot/output/aaw3/images`
+
+`aaw1-cs317` takes the `sdcard.img` file, `aaw2b` and `aaw3` take the `images` directory.
+
 ## Raspberry Pi 4
 ![Raspberry Pi 4](images/hw/rpi4.png){width=50%}
 | Feature | Specification |
