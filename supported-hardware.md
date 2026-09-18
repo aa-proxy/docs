@@ -120,6 +120,10 @@ For older devices, or if the button method does not work, you can still open the
 AAW boards have no removable media, so they flash over USB. Put the board into maskrom mode first:
 
 - AAW1 — hold the pinhole button, then plug in USB,
+::: details
+  For very old CS307's you have to hold the pinhole button > 10 seconds, let go, and it will reboot into maskrom  
+  For the later ones, it's the same hold button and plug in process as CS317
+:::
 - AAW2 (newer batch) — hold the button, plug in USB, and keep holding for 2 seconds,
 - AAW3 — hold the button, plug in USB, and keep holding for 2 seconds,
 
