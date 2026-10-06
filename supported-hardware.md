@@ -78,6 +78,25 @@ Even though the board supports eMMC, at the moment only SD card booting is suppo
 ![](images/scope/radxa5-spikes-when-idle.png)
 :::
 
+## Orange Pi Zero 2W
+![Orange Pi Zero 2W](images/hw/orangepi-z2w.jpg)
+| Feature | Specification |
+|---------|---------------|
+| URL | http://www.orangepi.org/orangepiwiki/index.php/Orange_Pi_Zero_2W |
+| SoC | Allwinner H618 |
+| CPU | Quad‑core Arm® Cortex®‑A53 @ 1.5GHz |
+| Storage | 1 x microSD slot |
+| RAM | 1GB / 1.5GB / 2GB / 4GB LPDDR4 (1GB is enough for aa-proxy) |
+| USB | 2 x USB 2.0 Type-C (power and data) |
+| Wireless | Dual-band Wi-Fi 5 (802.11a/b/g/n/ac) and Bluetooth 5.0 (AW859A, Unisoc UWE5622 based) |
+| Power | Requires 5V/2A power adapter |
+| Dimentions | 65 mm × 30 mm |
+| LEDs | Red: power indicator. Green: controlled by aa-proxy |
+| AliExpress | https://www.aliexpress.com/item/1005006020125658.html |
+::: info
+The Wi-Fi/Bluetooth chip needs an out-of-tree driver (UWE5622) and a few kernel patches taken from Armbian. The board is built from the `orangepi-z2w` configuration in [aa-proxy/buildroot](https://github.com/aa-proxy/buildroot).
+:::
+
 ## AAWireless 1
 | Feature | Specification |
 |---------|---------------|
