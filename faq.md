@@ -11,3 +11,9 @@ This is intentional behavior. Imagine that I connect once and, even if no data i
 I need to periodically attempt to restart the connection; otherwise, the whole system would not be able to recover from an error.
 
 If, during the initial startup, it looks like the entire AA session keeps restarting constantly, there is most likely some underlying problem. For example, the HU may not be responding in time, so after the configured timeout, `aa-proxy-rs` drops the connection and starts the whole process over again.
+
+## Can I run aa-proxy-rs on Windows for wired DHU connections?
+
+Yes, it has been reported to work, but Windows may not automatically recognize the phone's USB interface. If the device is not detected, manually install the [Google USB Driver](https://developer.android.com/studio/run/win-usb) and select **Android Composite ADB Interface** for the device with hardware ID `VID_18D1` / `PID_2D01`.
+
+Note that Windows may require the driver to be installed again after disconnecting and reconnecting the device. Modifying the driver's INF file to include this hardware ID may help resolve the issue permanently.
