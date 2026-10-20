@@ -24,7 +24,7 @@ However, Android Auto itself will not start until the phone is connected to the 
 
 ## Video overlay: hardware acceleration
 
-`aa-proxy-rs` can draw text on top of the Android Auto video (the *video overlay*). The overlay itself, all its options and the software mode are described in the [main README](https://github.com/manio/aa-proxy-rs#video-overlay). Here I only describe what you need to build to use the **hardware** H.264 decoder/encoder (`overlay_hw_accel = "auto"`) on a Raspberry Pi.
+`aa-proxy-rs` can draw text on top of the Android Auto video (the *video overlay*). The overlay itself, all its options and the software mode are described in the [main README](https://github.com/aa-proxy/aa-proxy-rs#video-overlay). Here I only describe what you need to build to use the **hardware** H.264 decoder/encoder (`overlay_hw_accel = "auto"`) on a Raspberry Pi.
 
 The official `aa-proxy-rs` image is a general purpose one, and I do not want to burden it with things that not everybody needs: the V4L2 codec drivers and tools are **not** included in it. To use the hardware acceleration on a Raspberry Pi you have to build your own image with Buildroot (see the [aa-proxy buildroot](https://github.com/aa-proxy/buildroot) repository) and add the following.
 
