@@ -17,3 +17,11 @@ If, during the initial startup, it looks like the entire AA session keeps restar
 Yes, it has been reported to work, but Windows may not automatically recognize the phone's USB interface. If the device is not detected, manually install the [Google USB Driver](https://developer.android.com/studio/run/win-usb) and select **Android Composite ADB Interface** for the device with hardware ID `VID_18D1` / `PID_2D01`.
 
 Note that Windows may require the driver to be installed again after disconnecting and reconnecting the device. Modifying the driver's INF file to include this hardware ID may help resolve the issue permanently.
+
+## Are there any plans to support Apple CarPlay or CarPlay Ultra?
+
+aa-proxy is designed for Android Auto, and Apple CarPlay is a completely different beast that would likely require a separate project.
+
+While the recent reverse engineering efforts and leaked MFi 3.0 certificates have sparked interest in CarPlay-related projects, adding support for CarPlay Ultra features, such as vehicle climate controls, is outside the scope of aa-proxy.
+
+I personally have no plans to work on this, as I don't own any Apple hardware and have no plans to get any. Anyone interested in bringing these capabilities to CarPlay is welcome to explore the idea as a separate project.
