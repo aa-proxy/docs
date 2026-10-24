@@ -97,3 +97,38 @@ overlay_hw_accel = "auto"
 ```
 
 The log tells whether the hardware codecs were found (`V4L2 M2M hardware acceleration enabled`) or the software pipeline is used.
+
+## A2DP Sink: keep the car's Bluetooth media audio untouched
+
+By default, when Android Auto starts, the phone switches its Bluetooth audio into a "car kit" (HFP-only) mode and the head unit's own Bluetooth **Media Audio** (A2DP) connection with the phone gets disabled. If you want to keep listening to the car's Bluetooth media (and, for example, let music apps keep updating live lyrics through the A2DP endpoint) while Android Auto is running, enable the `bt_a2dp_sink_enabled` option.
+
+```toml
+bt_a2dp_sink_enabled = false # default
+```
+
+What it does
+- Registers a dummy **A2DP Audio Sink** SDP profile on the local Bluetooth adapter (via BlueZ `ProfileManager1`), so the phone sees A2DP as available.
+- Strips the `BluetoothService` entry from the `service discovery response`, so Android Auto does not lock the session into Car-Kit/HFP-only audio routing.
+- As a result the vehicle's own Bluetooth media audio session stays untouched, while Android Auto voice/media still routes through the proxy.
+
+::: warning
+No audio is actually streamed through this A2DP profile: only the SDP record is advertised. The option is ignored in [Dongle Mode](#dongle-mode) and is marked as *advanced* in the web interface.
+:::
+
+### BlueZ `main.conf`
+
+In the setup where this feature was first reported and tested (see [issue #126](https://github.com/aa-proxy/aa-proxy-rs/issues/126)) the following was also set in `/etc/bluetooth/main.conf`, in the `[General]` section:
+
+```ini
+[General]
+Class = 0x200414
+Enable = Source,Sink,Media,Socket
+JustWorksRepairing = always
+DeviceID = false
+```
+
+These values come from a community report. Try `bt_a2dp_sink_enabled` first without touching `main.conf`, and only change it if the phone still disables the car's Media Audio. Restart `bluetoothd` (or reboot) after editing the file. If you build your own image, put the file into the rootfs overlay.
+
+### Troubleshooting
+- Check the log (`/var/log/aa-proxy-rs.log`) for `A2DP Sink SDP profile registered` – if you see `registration failed` instead, `bluetoothd` is probably not reachable over the system D-Bus.
+- After enabling the option, forget the **aa-proxy** device on the phone and pair again, so the phone refreshes the cached SDP records.
