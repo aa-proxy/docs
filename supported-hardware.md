@@ -37,8 +37,8 @@ The specifications listed below are taken from various sources – mainly offici
 | Wireless | Optional WIFI6 / BT5.4 onboard |
 | Ethernet | 100Mbps ethernet port(RJ45) onboard |
 | Power | 5V/1A |
-| Dimentions | 43mm x 43mm |
-| Others | 1x BOOT swich, 1x Recovery Key, 1x RST Key |
+| Dimensions | 43mm x 43mm |
+| Others | 1x BOOT switch, 1x Recovery Key, 1x RST Key |
 | AliExpress | https://www.aliexpress.com/item/1005006719645936.html |
 ::: info
 The aa-proxy image is prepared to run on the RISC-V core, not on the ARM Cortex one (which is probably good news, since it means it draws less current).
@@ -64,7 +64,7 @@ Even though the board supports eMMC, at the moment only SD card booting is suppo
 | Wireless | IEEE 802.11b/g/n/ac/ax(WiFi6) and BT 5.4 with BLE <br> Enable External or Onboard Antenna via Software Control |
 | Operating Conditions | Recommended environmental temperature: 0 ~ 50°C <br> Radxa ZERO 3W has a temperature limit of 80°C, beyond which it throttles clock speeds for reliability <br> For continuous high-performance use, external cooling methods like heat sinks or fans can maintain maximum clock speed below the 80°C limit |
 | Power | Requires 5V/2A power adapter |
-| Dimentions | 65 mm × 30 mm |
+| Dimensions | 65 mm × 30 mm |
 | AliExpress | https://www.aliexpress.com/item/1005007614734251.html |
 ::: details Current draw waveforms
 ![](images/scope/radxa1.png)
@@ -79,12 +79,20 @@ Even though the board supports eMMC, at the moment only SD card booting is suppo
 :::
 
 ## AAWireless 1
+
+AAWireless 1 was sold in two hardware revisions: the newer **CS317** and the older **CS307**. Specifications below are for the CS317.
+
 | Feature | Specification |
 |---------|---------------|
 | SoC | Rockchip RV1109 (Radxa CS317) |
 | Storage | eMMC |
 ::: danger
 Flashing aa-proxy will void your warranty, and at this moment there's no way to restore the original firmware.
+:::
+::: info
+The CS307 revision has its own image (`aaw1-cs307-sdcard.img`). The first CS307 release (v1.1.0) has a known issue: after changing any setting in the WebUI and rebooting, the Wi-Fi AP may no longer appear. This is fixed in the next release (see [aa-proxy-rs#141](https://github.com/aa-proxy/aa-proxy-rs/issues/141)).
+
+Entering MaskRom mode on CS307 differs between units, see [AAWireless Firmware Flashing Instructions](#aawireless-firmware-flashing-instructions).
 :::
 
 ## AAWireless TWO
@@ -108,7 +116,8 @@ Hold the button → plug in the USB cable → keep holding the button for 2 seco
 Once the device enters MaskRom mode (which you can confirm by the different USB device identity), you can use the flashing script provided here to upload the new firmware:  
 https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
 
-For older devices, or if the button method does not work, you can still open the case and manually short the MASKROM and GND pins during startup to force the device into MaskRom mode:  
+For older devices, or if the button method does not work, you can still open the case and manually short the MASKROM and GND pins during startup to force the device into MaskRom mode:
+:::
 ::: details click for detailed PCB view
 ![](images/aaw2b_pcb.png)
 :::
@@ -119,13 +128,24 @@ For older devices, or if the button method does not work, you can still open the
 ## AAWireless Firmware Flashing Instructions
 AAW boards have no removable media, so they flash over USB. Put the board into maskrom mode first:
 
-- AAW1 — hold the pinhole button, then plug in USB,
-::: details
-  For very old CS307's you have to hold the pinhole button > 10 seconds, let go, and it will reboot into maskrom  
-  For the later ones, it's the same hold button and plug in process as CS317
-:::
+- AAW1 (CS317) — hold the pinhole button, then plug in USB,
+- AAW1 (CS307) — depends on the unit, see the details below,
 - AAW2 (newer batch) — hold the button, plug in USB, and keep holding for 2 seconds,
 - AAW3 — hold the button, plug in USB, and keep holding for 2 seconds,
+
+::: details AAW1 CS307 — entering MaskRom mode
+Later CS307 units use the same hold button and plug in process as CS317.
+
+Very old CS307 units: hold the pinhole button for more than 10 seconds, let go, and the device will reboot into maskrom. This method is reported not to work on every CS307.
+
+Alternative sequence (reported by [@nick072](https://github.com/nick072), verified on a CS307 unit where the methods above did not work):
+
+1. Press and hold the button.
+2. Plug in the USB cable while keeping the button pressed.
+3. After the LED turns solid, count 4 flashes and briefly release the button.
+4. Press the button again and hold it for 6–8 seconds.
+5. The device is now in MaskRom mode.
+:::
 
 Then flash using this repo:  
 https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
@@ -152,7 +172,7 @@ https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
 | Ethernet | 1× Gigabit |
 | USB | 2× USB 3.0, 2× USB 2.0, 1 (Power USB-C) |
 | Power | 3A (15 W) power supply recommended |
-| Dimentions | 85.60 × 56.5 × 17 mm |
+| Dimensions | 85.60 × 56.5 × 17 mm |
 
 ## Raspberry Pi 5
 ![Raspberry Pi 5](images/hw/rpi5.webp){width=40%}
@@ -168,9 +188,9 @@ https://github.com/aa-proxy/buildroot/tree/main/tools/aaw
 | Ethernet | 1× Gigabit |
 | USB | 2× USB 3.0, 2× USB 2.0 |
 | Power | 12 W |
-| Dimentions | 85 × 56 mm |
+| Dimensions | 85 × 56 mm |
 ::: details Possible OTG problems
-I have a reports that sometimes OTG on the Pi5 is not working. In this case the logs (`dmesg`) are saying:
+I have received reports that sometimes OTG on the Pi5 is not working. In this case the logs (`dmesg`) are saying:
 ```
 dwc2 1000480000.usb: dwc2_core_reset: HANG! Soft Reset timeout GRSTCTL_CSFTRST
 dwc2 1000480000.usb: probe with driver dwc2 failed with error -16
@@ -218,7 +238,7 @@ info by: [@pepelxl](https://github.com/pepelxl)
 | Wi-Fi | 2.4/5 GHz 802.11b/g/n/ac |
 | Bluetooth | Bluetooth 4.2/BLE |
 | USB | 1× USB 2.0 |
-| Dimentions | 65 × 56.5 mm |
+| Dimensions | 65 × 56.5 mm |
 
 ## Raspberry Pi Zero 2 W
 ![Raspberry Pi Zero 2W](images/hw/rpi02w.webp){width=40%}
@@ -233,7 +253,7 @@ info by: [@pepelxl](https://github.com/pepelxl)
 | Bluetooth | Bluetooth 4.2/BLE |
 | USB | 1 Micro-USB 2.0 OTG, 1 Micro-USB for power |
 | Power | 120 mA (0.6 W) average when idle |
-| Dimentions | 65 × 30 × 5 mm |
+| Dimensions | 65 × 30 × 5 mm |
 
 ## Raspberry Pi Zero W
 ![Raspberry Pi Zero W](images/hw/rpi0w.png){width=40%}
@@ -248,4 +268,4 @@ info by: [@pepelxl](https://github.com/pepelxl)
 | Bluetooth | Bluetooth 4.2/BLE |
 | USB | 1 Micro-USB 2.0 OTG, 1 Micro-USB for power |
 | Power | 100 mA (0.5 W) average when idle, 350 mA (1.75 W) maximum under stress (monitor, keyboard and mouse connected) |
-| Dimentions | 65 × 30 × 5 mm |
+| Dimensions | 65 × 30 × 5 mm |
